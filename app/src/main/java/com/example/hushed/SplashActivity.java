@@ -13,26 +13,19 @@ public class SplashActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        mWaitHandler.postDelayed(new Runnable() {
+        mWaitHandler.postDelayed(() -> {
+            try {
 
-            @Override
-            public void run() {
+                //Go to next page i.e, start the next activity.
+                Intent intent = new Intent(getApplicationContext(), MainMenuActivity.class);
+                startActivity(intent);
 
-                //The following code will execute after the 5 seconds.
-
-                try {
-
-                    //Go to next page i.e, start the next activity.
-                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                    startActivity(intent);
-
-                    //Let's Finish Splash Activity since we don't want to show this when user press back button.
-                    finish();
-                } catch (Exception ignored) {
-                    ignored.printStackTrace();
-                }
+                //Let's Finish Splash Activity since we don't want to show this when user press back button.
+                finish();
+            } catch (Exception ignored) {
+                ignored.printStackTrace();
             }
-        }, 4000);  // Give a 4 seconds delay.
+        }, 111);
     }
 
     @Override

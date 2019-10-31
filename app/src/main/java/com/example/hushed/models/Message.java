@@ -36,6 +36,12 @@ public class Message {
         this.time = time;
     }
 
+    public int compareByTime(Message other) {
+        if (time < other.time) { return -1; }
+        if (time > other.time) { return  1; }
+        return 0;
+    }
+
 
 
 }
